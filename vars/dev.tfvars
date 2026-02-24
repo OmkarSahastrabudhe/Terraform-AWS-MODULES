@@ -1,5 +1,0 @@
-env = "dev"
-projectname = "cbz"
-ami_id = "ami-051a31ab2f4d498f5"
-instance_type = "t3.small"
-key_name = "superkey"
