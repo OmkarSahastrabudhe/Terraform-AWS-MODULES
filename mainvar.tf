@@ -1,5 +1,5 @@
-variable "project_id" {
-  description = "The ID of the project in which to create the resources."
+variable "project_name" {
+  description = "The name of the project in which to create the resources."
   type        = string
   
 }
