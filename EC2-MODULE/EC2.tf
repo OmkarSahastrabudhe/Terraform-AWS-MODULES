@@ -9,7 +9,7 @@ resource "aws_instance" "ec2_instance" {
 
 resource "aws_security_group" "ec2_default_sg" {
 
-    vpc_id = data.aws_default_vpc.default_vpc.id
+    vpc_id = data.aws_vpc.default.id
     name = "ec2_default_sg"
 
     ingress {
@@ -39,6 +39,6 @@ resource "aws_security_group" "ec2_default_sg" {
 
 
 
-data " aws_default_vpc" "default_vpc" {
-  
+data "aws_vpc" "default" {
+  default = true
 }
