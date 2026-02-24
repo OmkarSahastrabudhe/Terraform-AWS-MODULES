@@ -1,0 +1,5 @@
+ami_id        = "ami-019715e0d74f695be"
+instance_type = "t3.micro"
+key_name      = "superkey"
+env           = "dev"
+projectname   = "cbz"
