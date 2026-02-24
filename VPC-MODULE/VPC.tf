@@ -28,7 +28,7 @@ resource "aws_subnet" "private_subnet" {
   }
 
 resource "aws_default_route_table" "default_routetable" {
-    vpc_id = aws_vpc.my_vpc.id
+
     tags = {
         Name = "${var.projectname}-default-routetable"
         env = var.env
@@ -64,8 +64,8 @@ resource "aws_internet_gateway_attachment" "gateway_attachment" {
 resource "aws_security_group" "default_sg" {
     vpc_id = aws_vpc.my_vpc.id
     name = "${var.projectname}-default-sg"
-    ingress = [
-        {
+    ingress {
+        
             from_port = 22
             to_port = 22
             protocol = "tcp"
@@ -73,22 +73,22 @@ resource "aws_security_group" "default_sg" {
 
         
         }
-        ,{
+        ingress {
             from_port = 80
             to_port = 80
             protocol = "tcp"     
           cidr_blocks = ["0.0.0.0/0"]
         }
         
-    ]
-    egress = [
-        {
+    
+    egress { 
+        
             from_port = 0
             to_port = 0
             protocol = "-1"
             cidr_blocks = ["0.0.0.0/0"]
         }
-    ]
+    
 }
 
 
