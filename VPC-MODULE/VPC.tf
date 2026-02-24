@@ -52,13 +52,7 @@ resource "aws_internet_gateway" "my_igw" {
 }
 
 
-resource "aws_internet_gateway_attachment" "gateway_attachment" {
-    vpc_id = aws_vpc.my_vpc.id
-    internet_gateway_id = aws_internet_gateway.my_igw.id
-     
-  
-  
-}
+
 
 
 resource "aws_security_group" "default_sg" {

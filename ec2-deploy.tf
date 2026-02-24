@@ -14,7 +14,7 @@ module "vpc_default" {
 
 module "ec2" {
   source = "./EC2-MODULE"
-  ami_id = "ami-0c2b8ca1dad447f8a"
+  ami_id = "ami-019715e0d74f695be"
   instance_type = "t3.small"
   key_name = "superkey"
   subnet_id_public = module.vpc_default.subnet_id_public
