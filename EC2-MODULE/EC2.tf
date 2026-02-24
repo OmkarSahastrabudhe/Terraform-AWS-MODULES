@@ -1,9 +1,10 @@
-resource "aws_instance" "ec2_instance" {
+resource "aws_instance" "ec2"{
 
     ami = var.ami_id
     instance_type = var.instance_type
     key_name = var.key_name
-    security_groups = [aws_security_group.ec2_default_sg.id]   
+    security_groups = [aws_security_group.ec2_default_sg.id] 
+      
 }
 
 
