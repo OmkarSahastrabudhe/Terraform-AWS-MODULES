@@ -9,7 +9,20 @@ variable "key_name" {
     description = "The name of the key pair to use for the EC2 instance"
   
 }
+variable "subnet_id_public" {
+  
+}
 
+variable "security_group_id" {
+  
+}
+
+variable "projectname" {
+  
+}
+variable "env" {
+  
+}
 
 
 
