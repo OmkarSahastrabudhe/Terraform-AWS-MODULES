@@ -5,8 +5,8 @@ provider "aws" {
 
 module "vpc_default" {
   source = "./VPC-MODULE"
-  env = "dev"
-  projectname = "myproject"
+  env = var.env
+  projectname = var.projectname
    
   
   
@@ -14,14 +14,35 @@ module "vpc_default" {
 
 module "ec2" {
   source = "./EC2-MODULE"
-  ami_id = "ami-019715e0d74f695be"
-  instance_type = "t3.micro"
-  key_name = "superkey"
+  ami_id = var.ami_id
+  instance_type = var.instance_type
+  key_name = var.key_name
   subnet_id_public = module.vpc_default.subnet_id_public
   security_group_id = module.vpc_default.default_securitygroup
-  projectname = "myproject"
-  env = "dev"
+  projectname = var.projectname
+  env = var.env
 
   
 }
 
+variable "instance_type" {
+
+  
+
+  
+}
+variable "ami_id" {
+
+  
+}
+
+variable "projectname" {
+  
+}
+variable "env" {
+  
+  
+}
+variable "key_name" {
+  
+}
