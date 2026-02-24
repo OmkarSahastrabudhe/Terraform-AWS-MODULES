@@ -9,7 +9,7 @@ resource "aws_vpc" "my_vpc" {
 
 resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.my_vpc.id
-  cidr_block = "198.16.1.0/17"
+  cidr_block = "198.16.0.0/17"
   tags = {
     Name = "${var.projectname}-public-subnet"
     env = var.env
@@ -71,7 +71,8 @@ resource "aws_security_group" "default_sg" {
             cidr_blocks = ["0.0.0.0/0"]
 
         
-        
+        }
+        ,{
             from_port = 80
             to_port = 80
             protocol = "tcp"     
