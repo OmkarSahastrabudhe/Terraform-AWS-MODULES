@@ -16,6 +16,10 @@ resource "aws_eks_cluster" "aws_cluster" {
   }
 
   depends_on = [aws_iam_role.eks_cluster_role] 
+
+  timeouts {
+ create = "15m"
+  }
   
 }
 
@@ -47,6 +51,12 @@ resource "aws_eks_node_group" "node_group" {
   capacity_type = "ON_DEMAND"
 
   depends_on = [aws_eks_cluster.aws_cluster, aws_iam_role.nodegroup_role]
+
+  timeouts {
+
+    create = "15m"
+    
+  }
   
 }
 
