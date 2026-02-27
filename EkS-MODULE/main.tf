@@ -47,7 +47,7 @@ resource "aws_eks_node_group" "node_group" {
   }
   instance_types = var.ng_instance_types
   disk_size = 20
-  ami_type = "AL2023_x86_64"   
+  ami_type = "AL2023_x86_64_STANDARD"
   capacity_type = "ON_DEMAND"
 
   depends_on = [aws_eks_cluster.aws_cluster, aws_iam_role.nodegroup_role, aws_eks_addon.eks_addon, aws_iam_role_policy_attachment.nodegroup_attachment]
