@@ -1,5 +1,5 @@
 resource "aws_vpc" "my_vpc" {
-  cidr_block = "198.16.0.0/16"
+  cidr_block = var.vpc_cidr_block
   tags = {
     Name = "${var.projectname}-vpc"
     env = var.env
@@ -9,7 +9,8 @@ resource "aws_vpc" "my_vpc" {
 
 resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.my_vpc.id
-  cidr_block = "198.16.0.0/17"
+  for_each = var.public_sub_cidr
+  cidr_block = each.value
   tags = {
     Name = "${var.projectname}-public-subnet"
     env = var.env
@@ -20,7 +21,8 @@ resource "aws_subnet" "public_subnet" {
 
 resource "aws_subnet" "private_subnet" {
     vpc_id = aws_vpc.my_vpc.id
-    cidr_block = "198.16.128.0/17"
+    for_each = toset(var.private_sub_cidr)
+    cidr_block = each.value
     tags = {
       Name = "${var.projectname}-private-subnet"
       env = var.env
