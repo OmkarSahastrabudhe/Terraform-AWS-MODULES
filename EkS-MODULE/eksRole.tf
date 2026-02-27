@@ -19,6 +19,6 @@ POLICY
 
 resource "aws_iam_role_policy_attachment" "eks_cluster_role_attachment" {
   role       = aws_iam_role.eks_cluster_role.name
-  for_each = var.eks_cluster_policies
+  for_each = toset(var.eks_cluster_policies)
   policy_arn = each.value
 }

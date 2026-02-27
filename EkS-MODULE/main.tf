@@ -24,7 +24,6 @@ resource "aws_eks_addon" "eks_addon" {
   cluster_name = aws_eks_cluster.aws_cluster.name
   for_each = toset(var.cluster_addons)
   addon_name = each.value
-  addon_version = "latest"
   resolve_conflicts_on_update = "PRESERVE"
 
   depends_on = [aws_eks_cluster.aws_cluster]
@@ -44,7 +43,7 @@ resource "aws_eks_node_group" "node_group" {
   }
   instance_types = var.ng_instance_types
   disk_size = 20
-  ami_type = "default"
+  ami_type = "AL2_x86_64"
   capacity_type = "ON_DEMAND"
 
   depends_on = [aws_eks_cluster.aws_cluster, aws_iam_role.nodegroup_role]
