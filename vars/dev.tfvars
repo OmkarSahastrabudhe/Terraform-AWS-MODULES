@@ -9,7 +9,7 @@ vpc_projectname = "vpc-eks-project"
 
 # for cluster variables
 eks_cluster_name = "my-eks-cluster"
-eks_cluster_addon = ["vpc-cni", "coredns", "kube-proxy","metrics-server"]
+eks_cluster_addon = ["eks-pod-identity-agent","vpc-cni", "coredns", "kube-proxy","metrics-server"]
 eks_instance_types = ["t3.small"]
 
 
