@@ -14,3 +14,16 @@ module "vpc_module_eks" {
 
   
 }
+
+module "eks_module" {
+  source = "./EkS-MODULE"
+  cluster_name = var.eks_cluster_name
+  cluster_addons = var.eks_cluster_addon
+  ng_instance_types = var.eks_instance_types
+  subnet_ids = module.vpc_module_eks.subnet_id_public
+
+  
+  
+        
+
+}
