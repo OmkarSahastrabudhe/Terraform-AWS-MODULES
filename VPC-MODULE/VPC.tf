@@ -9,7 +9,7 @@ resource "aws_vpc" "my_vpc" {
 
 resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.my_vpc.id
-  for_each = var.public_sub_cidr
+  for_each = toset(var.public_sub_cidr)
   cidr_block = each.value
   tags = {
     Name = "${var.projectname}-public-subnet"
