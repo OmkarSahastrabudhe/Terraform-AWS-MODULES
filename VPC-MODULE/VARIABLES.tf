@@ -8,13 +8,13 @@ variable "projectname" {
 }
 
 output "subnet_id_public" {
-  value = aws_subnet.public_subnet.*.ids
+  value = [for pubsub in aws_subnet.public_subnet : pubsub.id]
   sensitive = true
 }
 
 output "subnet_id_private" {
     sensitive = true
-  value = aws_subnet.private_subnet.*.ids
+  value = [for privsub in aws_subnet.private_subnet : privsub.id]
 }
 output "default_routetable" {
     value = aws_default_route_table.default_routetable.id
