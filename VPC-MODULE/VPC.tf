@@ -7,6 +7,8 @@ resource "aws_vpc" "my_vpc" {
   }
 }
 
+data "aws_availability_zones" "available" {}
+
 resource "aws_subnet" "public_subnet" {
   vpc_id = aws_vpc.my_vpc.id
   for_each = toset(var.public_sub_cidr)
@@ -15,6 +17,11 @@ resource "aws_subnet" "public_subnet" {
     Name = "${var.projectname}-public-subnet"
     env = var.env
   }
+
+   availability_zone = element(
+    data.aws_availability_zones.available.names,
+    index(tolist(var.public_sub_cidr), each.value)
+  )
   map_public_ip_on_launch = true
   
 }
