@@ -59,12 +59,7 @@ resource "aws_eks_node_group" "node_group" {
     create = "15m"
     
   }
-  remote_access {
-
-      ec2_ssh_key = "super-key"
-  
-  source_security_group_ids = [var.node_security_group_id]
-}
+ 
 
   
 }
