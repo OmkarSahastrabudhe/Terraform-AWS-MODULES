@@ -8,8 +8,10 @@ resource "aws_eks_cluster" "aws_cluster" {
      endpoint_public_access  = true   
     endpoint_private_access = true 
     public_access_cidrs     = ["0.0.0.0/0"] 
+    cluster_security_group_id = var.cluster_security_group_id
     
   }
+  
   access_config {
     authentication_mode = "API"
     bootstrap_cluster_creator_admin_permissions = true
@@ -57,6 +59,11 @@ resource "aws_eks_node_group" "node_group" {
     create = "15m"
     
   }
+  remote_access {
+  
+  source_security_group_ids = [var.node_security_group_id]
+}
+
   
 }
 

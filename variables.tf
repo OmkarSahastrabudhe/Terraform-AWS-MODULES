@@ -26,3 +26,5 @@ variable "eks_cluster_addon" {
 variable "eks_instance_types" {
   
 }
+
+  

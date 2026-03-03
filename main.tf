@@ -21,6 +21,8 @@ module "eks_module" {
   cluster_addons = var.eks_cluster_addon
   ng_instance_types = var.eks_instance_types
   subnet_ids = module.vpc_module_eks.subnet_id_public
+  cluster_security_group_id = module.vpc_module_eks.cluster_security_group_id
+  node_security_group_id = module.vpc_module_eks.node_security_group_id
 
   
   
