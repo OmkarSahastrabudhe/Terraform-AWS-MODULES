@@ -8,7 +8,7 @@ resource "aws_eks_cluster" "aws_cluster" {
      endpoint_public_access  = true   
     endpoint_private_access = true 
     public_access_cidrs     = ["0.0.0.0/0"] 
-    cluster_security_group_id = var.cluster_security_group_id
+    
     
   }
   
