@@ -12,9 +12,7 @@ eks_cluster_name = "my-eks-cluster"
 eks_cluster_addon = [
   "eks-pod-identity-agent",
   "vpc-cni",
-  "kube-proxy",
-  "coredns",
-  "node-monitoring-agent"
+  "kube-proxy"
 ]
 
 eks_instance_types = ["t3.small"]
