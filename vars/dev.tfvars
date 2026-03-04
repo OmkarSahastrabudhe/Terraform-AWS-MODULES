@@ -14,9 +14,7 @@ eks_cluster_addon = [
   "vpc-cni",
   "kube-proxy",
   "coredns",
-  "node-monitoring-agent",
-  "metrics-server",
-  "external-dns"
+  "node-monitoring-agent"
 ]
 
 eks_instance_types = ["t3.small"]
