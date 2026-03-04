@@ -31,6 +31,9 @@ resource "aws_eks_addon" "eks_addon" {
   for_each = toset(var.cluster_addons)
   addon_name = each.value
   resolve_conflicts_on_update = "PRESERVE"
+  timeouts {
+    create = "2m"
+  }
 
   depends_on = [aws_eks_cluster.aws_cluster, aws_iam_role.eks_cluster_role,aws_iam_role_policy_attachment.eks_cluster_role_attachment]
   
