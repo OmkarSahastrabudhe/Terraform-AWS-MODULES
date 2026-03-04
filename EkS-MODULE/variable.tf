@@ -42,8 +42,3 @@ variable "eks_cluster_policies" {
 }
 
 
-variable "node_security_group_id" {
-  description = "The ID of the security group for the EKS node group."
-  type        = string
-  
-}

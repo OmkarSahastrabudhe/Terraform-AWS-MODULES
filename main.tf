@@ -22,7 +22,7 @@ module "eks_module" {
   ng_instance_types = var.eks_instance_types
   subnet_ids = module.vpc_module_eks.subnet_id_public
   
-  node_security_group_id = module.vpc_module_eks.default_securitygroup
+  
 
   
   
