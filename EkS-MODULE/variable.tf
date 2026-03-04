@@ -31,14 +31,5 @@ variable "ng_instance_types" {
   default = [ "t3.small" ]
 }
 
-variable "eks_cluster_policies" {
-  description = "List of IAM policy ARNs to attach to the EKS cluster role"
-  type        = list(string)
-  default = [
-    "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
-    "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
-    "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-  ]
-}
 
 
